@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.chatapp.client.controller.ChatController"
+            styleClass="chat-root"
+            stylesheets="@../css/style.css"
+            prefWidth="1050" prefHeight="680">
+
+    <!-- ════════ LEFT SIDEBAR ════════ -->
+    <left>
+        <VBox styleClass="sidebar" prefWidth="260" minWidth="220" maxWidth="300">
+
+            <!-- App Header -->
+            <VBox styleClass="sidebar-header" spacing="2">
+                <padding><Insets top="18" right="16" bottom="18" left="16"/></padding>
+                <Label text="💬 ChatApp" styleClass="sidebar-title"/>
+                <Label fx:id="currentUserLabel" text="@username" styleClass="sidebar-username"/>
+            </VBox>
+
+            <!-- Online Users -->
+            <VBox VBox.vgrow="ALWAYS" spacing="0">
+                <HBox styleClass="section-header" alignment="CENTER_LEFT" spacing="8">
+                    <padding><Insets top="12" right="12" bottom="8" left="12"/></padding>
+                    <Label text="🟢 Online Users" styleClass="section-title"/>
+                    <Label fx:id="onlineCountLabel" text="(0)" styleClass="section-count"/>
+                </HBox>
+                <ListView fx:id="onlineUsersListView"
+                          styleClass="users-list"
+                          VBox.vgrow="ALWAYS"
+                          onMouseClicked="#handleUserClick"/>
+            </VBox>
+
+            <Separator styleClass="sidebar-sep"/>
+
+            <!-- Groups -->
+            <VBox VBox.vgrow="ALWAYS" spacing="0">
+                <HBox styleClass="section-header" alignment="CENTER_LEFT" spacing="8">
+                    <padding><Insets top="12" right="12" bottom="8" left="12"/></padding>
+                    <Label text="👥 Groups" styleClass="section-title"/>
+                </HBox>
+                <ListView fx:id="groupsListView"
+                          styleClass="groups-list"
+                          VBox.vgrow="ALWAYS"
+                          onMouseClicked="#handleGroupClick"/>
+            </VBox>
+
+            <!-- Sidebar Buttons -->
+            <VBox styleClass="sidebar-footer" spacing="8">
+                <padding><Insets top="10" right="12" bottom="14" left="12"/></padding>
+                <Button text="➕  Create Group"
+                        fx:id="createGroupBtn"
+                        styleClass="create-group-btn"
+                        onAction="#handleCreateGroup"
+                        maxWidth="Infinity"/>
+                <Button text="⏻  Logout"
+                        fx:id="logoutBtn"
+                        styleClass="logout-btn"
+                        onAction="#handleLogout"
+                        maxWidth="Infinity"/>
+            </VBox>
+        </VBox>
+    </left>
+
+    <!-- ════════ CENTER CHAT AREA ════════ -->
+    <center>
+        <VBox styleClass="chat-pane">
+
+            <!-- Top Bar -->
+            <HBox styleClass="chat-topbar" alignment="CENTER_LEFT" spacing="12">
+                <padding><Insets top="14" right="20" bottom="14" left="20"/></padding>
+                <VBox spacing="2" HBox.hgrow="ALWAYS">
+                    <Label fx:id="chatTargetLabel"
+                           text="Select a user or group to start chatting"
+                           styleClass="topbar-name"/>
+                    <Label fx:id="statusLabel" text="" styleClass="topbar-status"/>
+                </VBox>
+                <Label fx:id="onlineIndicator" text="● Online" styleClass="online-dot"
+                       visible="false" managed="false"/>
+            </HBox>
+
+            <Separator/>
+
+            <!-- Messages -->
+            <ScrollPane fx:id="chatScrollPane"
+                        styleClass="messages-scroll"
+                        fitToWidth="true"
+                        hbarPolicy="NEVER"
+                        VBox.vgrow="ALWAYS">
+                <content>
+                    <VBox fx:id="messagesBox" styleClass="messages-container" spacing="8">
+                        <padding><Insets top="16" right="20" bottom="16" left="20"/></padding>
+                        <!-- Welcome placeholder -->
+                        <VBox fx:id="placeholderBox" alignment="CENTER" spacing="12">
+                            <padding><Insets top="80"/></padding>
+                            <Label text="💬" style="-fx-font-size: 60;"/>
+                            <Label text="Select a conversation" styleClass="placeholder-title"/>
+                            <Label text="Choose a user or group from the sidebar to start chatting"
+                                   styleClass="placeholder-sub" wrapText="true"/>
+                        </VBox>
+                    </VBox>
+                </content>
+            </ScrollPane>
+
+            <!-- Input Bar -->
+            <HBox styleClass="input-bar" spacing="10" alignment="CENTER">
+                <padding><Insets top="12" right="16" bottom="12" left="16"/></padding>
+                <TextField fx:id="messageInput"
+                           promptText="Type a message..."
+                           styleClass="message-input"
+                           HBox.hgrow="ALWAYS"
+                           onAction="#handleSendMessage"/>
+                <Button text="Send ➤"
+                        fx:id="sendBtn"
+                        styleClass="send-btn"
+                        onAction="#handleSendMessage"
+                        disable="true"/>
+            </HBox>
+        </VBox>
+    </center>
+
+</BorderPane>

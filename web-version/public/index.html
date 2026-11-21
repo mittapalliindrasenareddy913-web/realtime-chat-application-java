@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChatApp — Real-time Messenger</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ================= AUTH SCREEN ================= -->
+  <div id="authScreen" class="auth-wrapper">
+    <div class="auth-card">
+      <div class="auth-header">
+        <div class="auth-icon">💬</div>
+        <h2>Realtime ChatApp</h2>
+        <p>Connect and chat in real-time</p>
+      </div>
+
+      <div class="tab-toggle">
+        <button id="loginTabBtn" class="active" onclick="switchAuthTab('login')">Login</button>
+        <button id="registerTabBtn" onclick="switchAuthTab('register')">Register</button>
+      </div>
+
+      <!-- Quick Test Accounts -->
+      <div class="quick-login-box">
+        <span>⚡ Quick Login (1-Click Test):</span>
+        <div class="quick-btns">
+          <button type="button" onclick="quickLogin('alice')">👤 Alice</button>
+          <button type="button" onclick="quickLogin('bob')">👤 Bob</button>
+          <button type="button" onclick="quickLogin('charlie')">👤 Charlie</button>
+        </div>
+      </div>
+
+      <!-- Login Form -->
+      <form id="loginForm" onsubmit="handleLogin(event)">
+        <div class="input-group">
+          <label>Username</label>
+          <input type="text" id="loginUsername" placeholder="e.g. alice" required autocomplete="username">
+        </div>
+        <div class="input-group">
+          <label>Password</label>
+          <input type="password" id="loginPassword" placeholder="••••••••" required autocomplete="current-password">
+        </div>
+        <div id="loginError" class="alert-msg error"></div>
+        <button type="submit" class="primary-btn">Sign In & Enter Chat →</button>
+      </form>
+
+      <!-- Register Form -->
+      <form id="registerForm" style="display:none;" onsubmit="handleRegister(event)">
+        <div class="input-group">
+          <label>Choose Username</label>
+          <input type="text" id="regUsername" placeholder="e.g. david" required>
+        </div>
+        <div class="input-group">
+          <label>Email Address</label>
+          <input type="email" id="regEmail" placeholder="e.g. david@example.com" required>
+        </div>
+        <div class="input-group">
+          <label>Create Password</label>
+          <input type="password" id="regPassword" placeholder="Minimum 6 characters" required>
+        </div>
+        <div id="regError" class="alert-msg error"></div>
+        <div id="regSuccess" class="alert-msg success"></div>
+        <button type="submit" class="primary-btn">Create Account →</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= CHAT APPLICATION SCREEN ================= -->
+  <div id="chatScreen" class="chat-wrapper" style="display:none;">
+    
+    <!-- Sidebar -->
+    <aside class="chat-sidebar">
+      <!-- Profile bar -->
+      <div class="sidebar-top">
+        <div class="user-badge">
+          <div class="avatar" id="myAvatar">U</div>
+          <div class="user-meta">
+            <span class="user-name" id="myUsername">User</span>
+            <span class="user-status-dot online">Online</span>
+          </div>
+        </div>
+        <button class="icon-btn logout-btn" onclick="handleLogout()" title="Logout">⏻</button>
+      </div>
+
+      <!-- Action: Create Group -->
+      <div class="sidebar-action">
+        <button class="new-grp-btn" onclick="openCreateGroupModal()">➕ New Group</button>
+      </div>
+
+      <!-- Online Users Section -->
+      <div class="sidebar-section">
+        <div class="section-title">
+          <span>🟢 Online Users</span>
+          <span class="badge" id="onlineUsersCount">0</span>
+        </div>
+        <div id="usersList" class="contact-list">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- Groups Section -->
+      <div class="sidebar-section">
+        <div class="section-title">
+          <span>👥 Group Channels</span>
+          <span class="badge" id="groupsCount">0</span>
+        </div>
+        <div id="groupsList" class="contact-list">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Chat Window -->
+    <main class="chat-main">
+      <!-- Chat Header -->
+      <header class="chat-header">
+        <div class="target-info">
+          <div class="avatar" id="targetAvatar">#</div>
+          <div>
+            <h3 id="targetName">Select a chat to begin</h3>
+            <span id="targetStatus" class="target-sub">Private & Group real-time conversations</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Message History View -->
+      <section id="messagesContainer" class="messages-area">
+        <div class="empty-state">
+          <div class="empty-icon">👋</div>
+          <h3>Welcome to Realtime ChatApp</h3>
+          <p>Choose an online user for 1-on-1 private chat, or select a group to talk with everyone!</p>
+        </div>
+      </section>
+
+      <!-- Message Input Bar -->
+      <footer class="chat-footer">
+        <form id="messageForm" onsubmit="handleSendMessage(event)">
+          <input type="text" id="messageInput" placeholder="Type a message... (Press Enter to send)" autocomplete="off" disabled>
+          <button type="submit" id="sendBtn" class="send-btn" disabled>Send ➤</button>
+        </form>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Create Group Modal -->
+  <div id="createGroupModal" class="modal-backdrop" style="display:none;">
+    <div class="modal-box">
+      <h3>Create New Group</h3>
+      <p>Give your new chat channel a name:</p>
+      <input type="text" id="newGroupName" placeholder="e.g. Project Discussion 🚀" maxlength="40">
+      <div class="modal-actions">
+        <button class="btn-cancel" onclick="closeCreateGroupModal()">Cancel</button>
+        <button class="btn-confirm" onclick="confirmCreateGroup()">Create</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

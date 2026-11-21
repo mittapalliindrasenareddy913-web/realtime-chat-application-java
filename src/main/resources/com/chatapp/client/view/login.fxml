@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<StackPane xmlns="http://javafx.com/javafx/17"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.chatapp.client.controller.LoginController"
+           styleClass="root-pane"
+           stylesheets="@../css/style.css">
+
+    <VBox alignment="CENTER" fillWidth="true">
+
+        <VBox styleClass="login-card" spacing="0" maxWidth="420" minWidth="380">
+
+            <!-- ── Header ── -->
+            <VBox alignment="CENTER" spacing="8" styleClass="login-header">
+                <padding><Insets top="30" bottom="20"/></padding>
+                <Label text="💬" style="-fx-font-size: 48;"/>
+                <Label text="ChatApp" styleClass="app-title"/>
+                <Label text="Real-Time Messenger" styleClass="app-subtitle"/>
+            </VBox>
+
+            <!-- ── Tab Switcher ── -->
+            <HBox styleClass="tab-switcher" spacing="0">
+                <Button fx:id="loginTabBtn"
+                        text="Login"
+                        styleClass="tab-btn-active"
+                        onAction="#showLoginTab"
+                        HBox.hgrow="ALWAYS"
+                        maxWidth="Infinity"/>
+                <Button fx:id="registerTabBtn"
+                        text="Register"
+                        styleClass="tab-btn"
+                        onAction="#showRegisterTab"
+                        HBox.hgrow="ALWAYS"
+                        maxWidth="Infinity"/>
+            </HBox>
+
+            <!-- ── Login Form ── -->
+            <VBox fx:id="loginSection" styleClass="form-section" spacing="14">
+                <padding><Insets top="28" right="36" bottom="10" left="36"/></padding>
+
+                <VBox spacing="6">
+                    <Label text="Username" styleClass="field-label"/>
+                    <TextField fx:id="loginUsernameField"
+                               promptText="Enter your username"
+                               styleClass="text-input"/>
+                </VBox>
+
+                <VBox spacing="6">
+                    <Label text="Password" styleClass="field-label"/>
+                    <PasswordField fx:id="loginPasswordField"
+                                  promptText="Enter your password"
+                                  styleClass="text-input"/>
+                </VBox>
+
+                <Label fx:id="loginErrorLabel"
+                       styleClass="error-label"
+                       text=""
+                       wrapText="true"
+                       visible="false"/>
+
+                <Button text="Login  →"
+                        fx:id="loginBtn"
+                        styleClass="primary-btn"
+                        onAction="#handleLogin"
+                        maxWidth="Infinity"/>
+            </VBox>
+
+            <!-- ── Register Form (initially hidden) ── -->
+            <VBox fx:id="registerSection" styleClass="form-section" spacing="14"
+                  visible="false" managed="false">
+                <padding><Insets top="28" right="36" bottom="10" left="36"/></padding>
+
+                <VBox spacing="6">
+                    <Label text="Username" styleClass="field-label"/>
+                    <TextField fx:id="regUsernameField"
+                               promptText="Choose a username"
+                               styleClass="text-input"/>
+                </VBox>
+
+                <VBox spacing="6">
+                    <Label text="Email" styleClass="field-label"/>
+                    <TextField fx:id="regEmailField"
+                               promptText="Enter your email"
+                               styleClass="text-input"/>
+                </VBox>
+
+                <VBox spacing="6">
+                    <Label text="Password" styleClass="field-label"/>
+                    <PasswordField fx:id="regPasswordField"
+                                  promptText="Create a password (min 6 chars)"
+                                  styleClass="text-input"/>
+                </VBox>
+
+                <VBox spacing="6">
+                    <Label text="Confirm Password" styleClass="field-label"/>
+                    <PasswordField fx:id="regConfirmPasswordField"
+                                  promptText="Confirm your password"
+                                  styleClass="text-input"/>
+                </VBox>
+
+                <Label fx:id="registerErrorLabel"
+                       styleClass="error-label"
+                       text=""
+                       wrapText="true"
+                       visible="false"/>
+
+                <Button text="Create Account  →"
+                        fx:id="registerBtn"
+                        styleClass="primary-btn"
+                        onAction="#handleRegister"
+                        maxWidth="Infinity"/>
+            </VBox>
+
+            <!-- ── Loading Indicator ── -->
+            <VBox alignment="CENTER">
+                <padding><Insets top="10" bottom="10"/></padding>
+                <ProgressIndicator fx:id="loadingIndicator"
+                                   prefWidth="30" prefHeight="30"
+                                   visible="false"/>
+            </VBox>
+
+            <!-- ── Footer ── -->
+            <VBox alignment="CENTER" styleClass="login-footer">
+                <padding><Insets top="8" bottom="20"/></padding>
+                <Label text="Secure · Real-Time · Connected" styleClass="footer-text"/>
+            </VBox>
+
+        </VBox>
+    </VBox>
+</StackPane>

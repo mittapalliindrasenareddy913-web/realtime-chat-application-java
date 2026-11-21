@@ -1,0 +1,458 @@
+/* ═══════════════════════════════════════════════════════════════════
+   ChatApp — JavaFX Dark Theme  (style.css)
+   All properties use the -fx- prefix required by JavaFX CSS.
+═══════════════════════════════════════════════════════════════════ */
+
+/* ── Root ───────────────────────────────────────────────────────── */
+.root {
+    -fx-background-color: #1a1a2e;
+    -fx-font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    -fx-font-size: 13px;
+}
+
+.root-pane {
+    -fx-background-color: linear-gradient(to bottom right, #1a1a2e, #16213e, #0f3460);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   LOGIN SCREEN
+═══════════════════════════════════════════════════════════════════ */
+
+/* ── Login card ─────────────────────────────────────────────────── */
+.login-card {
+    -fx-background-color: #16213e;
+    -fx-background-radius: 16;
+    -fx-border-radius: 16;
+    -fx-border-color: #2d2d4e;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 32, 0, 0, 10);
+}
+
+/* ── Login header ───────────────────────────────────────────────── */
+.login-header {
+    -fx-background-color: transparent;
+    -fx-alignment: center;
+}
+
+.app-icon {
+    -fx-font-size: 52px;
+}
+
+.app-title {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #4fc3f7;
+}
+
+.app-subtitle {
+    -fx-font-size: 13px;
+    -fx-text-fill: #9e9e9e;
+}
+
+/* ── Tab switcher ───────────────────────────────────────────────── */
+.tab-switcher {
+    -fx-background-color: #0f3460;
+}
+
+.tab-btn {
+    -fx-background-color: #0f3460;
+    -fx-text-fill: #9e9e9e;
+    -fx-font-size: 13px;
+    -fx-cursor: hand;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+    -fx-padding: 10 0 10 0;
+}
+
+.tab-btn:hover {
+    -fx-background-color: #1a3a6e;
+    -fx-text-fill: #e0e0e0;
+}
+
+.tab-btn-active {
+    -fx-background-color: #4fc3f7;
+    -fx-text-fill: #0d1117;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+    -fx-padding: 10 0 10 0;
+}
+
+/* ── Form section ───────────────────────────────────────────────── */
+.form-section {
+    -fx-background-color: transparent;
+}
+
+/* ── Field labels ───────────────────────────────────────────────── */
+.field-label {
+    -fx-text-fill: #9e9e9e;
+    -fx-font-size: 12px;
+}
+
+/* ── Text / Password input fields ───────────────────────────────── */
+.text-input,
+.text-input:focused {
+    -fx-background-color: #0f3460;
+    -fx-text-fill: #e0e0e0;
+    -fx-prompt-text-fill: #616161;
+    -fx-background-radius: 8;
+    -fx-border-color: #2d2d4e;
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+    -fx-padding: 10 14 10 14;
+    -fx-font-size: 13px;
+    -fx-pref-height: 42;
+}
+
+.text-input:focused {
+    -fx-border-color: #4fc3f7;
+    -fx-effect: dropshadow(gaussian, rgba(79,195,247,0.25), 6, 0, 0, 0);
+}
+
+/* ── Primary button ─────────────────────────────────────────────── */
+.primary-btn {
+    -fx-background-color: linear-gradient(to bottom, #4fc3f7, #0288d1);
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-cursor: hand;
+    -fx-padding: 11 0 11 0;
+    -fx-effect: dropshadow(gaussian, rgba(79,195,247,0.4), 8, 0, 0, 2);
+}
+
+.primary-btn:hover {
+    -fx-background-color: linear-gradient(to bottom, #81d4fa, #0288d1);
+    -fx-effect: dropshadow(gaussian, rgba(79,195,247,0.6), 12, 0, 0, 4);
+}
+
+.primary-btn:pressed {
+    -fx-background-color: linear-gradient(to bottom, #0288d1, #01579b);
+    -fx-effect: none;
+}
+
+.primary-btn:disabled {
+    -fx-opacity: 0.5;
+}
+
+/* ── Error label ────────────────────────────────────────────────── */
+.error-label {
+    -fx-text-fill: #ef5350;
+    -fx-font-size: 12px;
+    -fx-wrap-text: true;
+}
+
+/* ── Footer ─────────────────────────────────────────────────────── */
+.login-footer {
+    -fx-background-color: transparent;
+}
+
+.footer-text {
+    -fx-text-fill: #424242;
+    -fx-font-size: 11px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   CHAT SCREEN - SIDEBAR
+═══════════════════════════════════════════════════════════════════ */
+
+.chat-root {
+    -fx-background-color: #1a1a2e;
+}
+
+.sidebar {
+    -fx-background-color: #16213e;
+    -fx-border-color: #2d2d4e;
+    -fx-border-width: 0 1 0 0;
+}
+
+.sidebar-header {
+    -fx-background-color: #0f3460;
+    -fx-padding: 16 14 16 14;
+}
+
+.sidebar-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #4fc3f7;
+}
+
+.sidebar-username {
+    -fx-font-size: 12px;
+    -fx-text-fill: #9e9e9e;
+}
+
+.section-header {
+    -fx-background-color: transparent;
+}
+
+.section-title {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #9e9e9e;
+    -fx-text-transform: uppercase;
+}
+
+.section-count {
+    -fx-font-size: 11px;
+    -fx-text-fill: #616161;
+}
+
+/* ── ListViews ──────────────────────────────────────────────────── */
+.users-list,
+.groups-list {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+}
+
+.users-list .list-cell,
+.groups-list .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #bdbdbd;
+    -fx-padding: 9 14 9 14;
+    -fx-font-size: 13px;
+    -fx-border-color: transparent transparent #1e2a4a transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.users-list .list-cell:hover,
+.groups-list .list-cell:hover {
+    -fx-background-color: rgba(79, 195, 247, 0.08);
+    -fx-text-fill: #e0e0e0;
+    -fx-cursor: hand;
+}
+
+.users-list .list-cell:selected,
+.groups-list .list-cell:selected {
+    -fx-background-color: rgba(2, 136, 209, 0.3);
+    -fx-text-fill: #4fc3f7;
+}
+
+.sidebar-sep {
+    -fx-background-color: #2d2d4e;
+}
+
+.sidebar-footer {
+    -fx-background-color: #0f3460;
+    -fx-padding: 10 12 14 12;
+    -fx-spacing: 8;
+}
+
+/* ── Create group / logout buttons ──────────────────────────────── */
+.create-group-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #4fc3f7;
+    -fx-font-size: 12px;
+    -fx-background-radius: 6;
+    -fx-border-color: #4fc3f7;
+    -fx-border-radius: 6;
+    -fx-border-width: 1;
+    -fx-cursor: hand;
+    -fx-padding: 6 0 6 0;
+}
+
+.create-group-btn:hover {
+    -fx-background-color: #4fc3f7;
+    -fx-text-fill: #0d1117;
+}
+
+.logout-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #ef5350;
+    -fx-font-size: 12px;
+    -fx-background-radius: 6;
+    -fx-border-color: #ef5350;
+    -fx-border-radius: 6;
+    -fx-border-width: 1;
+    -fx-cursor: hand;
+    -fx-padding: 6 0 6 0;
+}
+
+.logout-btn:hover {
+    -fx-background-color: #ef5350;
+    -fx-text-fill: white;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   CHAT SCREEN - MAIN CHAT PANE
+═══════════════════════════════════════════════════════════════════ */
+
+.chat-pane {
+    -fx-background-color: #1a1a2e;
+}
+
+/* ── Top bar ────────────────────────────────────────────────────── */
+.chat-topbar {
+    -fx-background-color: #16213e;
+}
+
+.topbar-name {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #e0e0e0;
+}
+
+.topbar-status {
+    -fx-font-size: 11px;
+    -fx-text-fill: #9e9e9e;
+}
+
+.online-dot {
+    -fx-text-fill: #4caf50;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+/* ── Placeholder ────────────────────────────────────────────────── */
+.placeholder-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #424242;
+}
+
+.placeholder-sub {
+    -fx-font-size: 13px;
+    -fx-text-fill: #2d2d4e;
+    -fx-text-alignment: center;
+}
+
+/* ── Messages scroll / container ───────────────────────────────── */
+.messages-scroll {
+    -fx-background-color: transparent;
+    -fx-background: #1a1a2e;
+}
+
+.messages-scroll > .viewport {
+    -fx-background-color: transparent;
+}
+
+.messages-scroll .scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-pref-width: 6;
+}
+
+.messages-scroll .scroll-bar:vertical .thumb {
+    -fx-background-color: #2d2d4e;
+    -fx-background-radius: 4;
+}
+
+.messages-scroll .scroll-bar:vertical .increment-button,
+.messages-scroll .scroll-bar:vertical .decrement-button {
+    -fx-background-color: transparent;
+    -fx-pref-height: 0;
+}
+
+.messages-container {
+    -fx-background-color: #1a1a2e;
+}
+
+/* ── Message bubbles ────────────────────────────────────────────── */
+.message-sent {
+    -fx-background-color: linear-gradient(to bottom right, #0288d1, #01579b);
+    -fx-background-radius: 16 4 16 16;
+    -fx-effect: dropshadow(gaussian, rgba(2,136,209,0.3), 4, 0, 0, 2);
+}
+
+.message-received {
+    -fx-background-color: #263238;
+    -fx-background-radius: 4 16 16 16;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 4, 0, 0, 2);
+}
+
+/* ── Input bar ──────────────────────────────────────────────────── */
+.input-bar {
+    -fx-background-color: #16213e;
+    -fx-border-color: #2d2d4e;
+    -fx-border-width: 1 0 0 0;
+}
+
+.message-input {
+    -fx-background-color: #0f3460;
+    -fx-text-fill: #e0e0e0;
+    -fx-prompt-text-fill: #616161;
+    -fx-background-radius: 20;
+    -fx-border-color: #2d2d4e;
+    -fx-border-radius: 20;
+    -fx-border-width: 1;
+    -fx-padding: 10 16 10 16;
+    -fx-font-size: 13px;
+}
+
+.message-input:focused {
+    -fx-border-color: #4fc3f7;
+    -fx-effect: dropshadow(gaussian, rgba(79,195,247,0.2), 6, 0, 0, 0);
+}
+
+/* ── Send button ────────────────────────────────────────────────── */
+.send-btn {
+    -fx-background-color: linear-gradient(to bottom, #4fc3f7, #0288d1);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-cursor: hand;
+    -fx-padding: 10 20 10 20;
+    -fx-effect: dropshadow(gaussian, rgba(79,195,247,0.4), 6, 0, 0, 2);
+}
+
+.send-btn:hover {
+    -fx-background-color: linear-gradient(to bottom, #81d4fa, #0288d1);
+}
+
+.send-btn:pressed {
+    -fx-background-color: #0288d1;
+    -fx-effect: none;
+}
+
+.send-btn:disabled {
+    -fx-opacity: 0.4;
+    -fx-cursor: default;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   GLOBAL — Separators, scrollbars, tooltips
+═══════════════════════════════════════════════════════════════════ */
+
+.separator > .line {
+    -fx-background-color: #2d2d4e;
+    -fx-border-color: #2d2d4e;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: #2d2d4e;
+    -fx-background-radius: 4;
+}
+
+.scroll-bar {
+    -fx-background-color: transparent;
+}
+
+.tooltip {
+    -fx-background-color: #0f3460;
+    -fx-text-fill: #e0e0e0;
+    -fx-background-radius: 4;
+    -fx-border-color: #2d2d4e;
+    -fx-font-size: 12px;
+}
+
+/* ── Progress indicator ─────────────────────────────────────────── */
+.progress-indicator > .indicator {
+    -fx-background-color: transparent;
+}
+
+.progress-indicator > .indicator > .percentage {
+    -fx-fill: #4fc3f7;
+}
+
+.progress-indicator .arc {
+    -fx-stroke: #4fc3f7;
+}
